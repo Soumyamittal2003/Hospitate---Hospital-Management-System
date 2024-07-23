@@ -6,6 +6,7 @@ import {config} from "dotenv";
 import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import { dbConnection } from "./database/dbConnection.js";
+import messageRouter from "./router/messageRouter.js"
 
 
 
@@ -35,6 +36,10 @@ app.use(
         tempFileDir:"/tmp/"
     })
 )
+
+
+//Routes
+app.use("/api/v1/message",messageRouter);
 
 //connection DataBase
 dbConnection();
