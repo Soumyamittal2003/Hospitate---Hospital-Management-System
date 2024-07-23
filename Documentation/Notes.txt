@@ -1,0 +1,6 @@
+dependencies :
+
+bcrypt : hash password
+cloudinary : used to store img in cloud.
+cors : connect backend frontend
+
