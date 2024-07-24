@@ -81,3 +81,52 @@ export const postAppointment = catchAsyncError(async(req,res,next)=>{
         appointment
     });
 });
+
+
+// module to get all appointments to admin
+
+export const getAllAppointments = catchAsyncError(async (req, res, next) => {
+    const appointments = await Appointment.find();
+    res.status(200).json({
+      success: true,
+      appointments,
+    });
+  });
+  
+
+// module for update the status of the appointment
+
+export const updateAppointments = catchAsyncError(async (req, res, next) => {
+    const{id}=req.params;
+    let appointment =await Appointment.findById(id);
+    if(!appointment){
+        return next(new ErrorHandler("Appointment Not Found!",404));
+    }
+    appointment =await Appointment.findByIdAndUpdate(id,req.body,{
+        new:true,
+        runValidators:true,
+        useFindAndModify:false,
+    });
+    res.status(200).json({
+        success:true,
+        message:"Appointment Status Updated!",
+        appointment
+    });
+});
+
+
+// module for delete the appointment
+
+export const deleteAppointments = catchAsyncError(async (req, res, next) => {
+    const{id}=req.params;
+    let appointment =await Appointment.findById(id);
+    if(!appointment){
+        return next(new ErrorHandler("Appointment Not Found!",404));
+    }
+
+    await appointment.deleteOne();
+    res.status(200).json({
+        success:true,
+        message:"Appointment Deleted!"
+    });
+})
