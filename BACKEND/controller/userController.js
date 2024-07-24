@@ -5,7 +5,7 @@ import { generateToken } from "../utils/jwtToken.js";
 
 
 
-
+// create patient record module
 export const patientRegister = catchAsyncError(async(req,res,next)=>{
     const {
         firstName,
@@ -53,6 +53,8 @@ export const patientRegister = catchAsyncError(async(req,res,next)=>{
 
 });
 
+
+// login module
 export const login = catchAsyncError(async(req,res,next)=>{
     const{email,password,confirmPassword,role}=req.body;
     if(!email || !password|| !confirmPassword|| !role){
@@ -78,3 +80,52 @@ export const login = catchAsyncError(async(req,res,next)=>{
 
 
 })
+
+// create admin module
+
+export const addnewAdmin = catchAsyncError(async(req,res,next)=>{
+    const {
+        firstName,
+        lastName,
+        email,
+        phone,
+        password,
+        gender,
+        dob,
+        nic,
+        
+    } =req.body;
+
+    if(
+        !firstName ||
+        !lastName ||
+        !email ||
+        !phone ||
+        !password ||
+        !gender ||
+        !dob ||
+        !nic){
+            return next(new ErrorHandler("Please Fill Full Form!",400));
+        }
+    let isRegistered= await User.findOne({email});
+    if (isRegistered) {
+        return next(new ErrorHandler(`${isRegistered.role}with this Email Already Registered!`,400));
+        }
+
+    const admin= await User.create({
+           firstName,
+           lastName,
+           email,
+           phone,
+           password,
+           gender,
+           dob,
+           nic,
+           role:"Admin",
+
+        });
+        res.status(200).json({
+            success:true,
+            message:"New Admin Registered"
+        });
+});
