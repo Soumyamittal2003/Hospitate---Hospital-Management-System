@@ -129,3 +129,25 @@ export const addnewAdmin = catchAsyncError(async(req,res,next)=>{
             message:"New Admin Registered"
         });
 });
+
+
+//module for getting all doctors
+
+export const getAllDoctors = catchAsyncError(async(req,res,next)=>{
+    const doctors =await User.find({role:"Doctor"});
+    res.status(200).json({
+        success:true,
+        doctors
+    });
+});
+
+
+//module for getting all user
+
+export const getUserDetails = catchAsyncError(async(req,res,next)=>{
+    const user =req.user;
+    res.status(200).json({
+        success:true,
+        user,
+    });
+});
