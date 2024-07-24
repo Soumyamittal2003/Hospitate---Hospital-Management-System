@@ -1,6 +1,7 @@
 import { catchAsyncError } from "../middlewares/catchAsyncErrors.js";
 import ErrorHandler from "../middlewares/errorMiddleware.js";
 import { User } from "../models/userSchema.js";
+import { generateToken } from "../utils/jwtToken.js";
 
 
 
@@ -47,10 +48,8 @@ export const patientRegister = catchAsyncError(async(req,res,next)=>{
             role,
 
          });
-         res.status(200).json({
-            success:true,
-            message:"user Registerd",
-         });
+         generateToken(user,"User Registered!",200,res)
+        
 
 });
 
@@ -75,10 +74,7 @@ export const login = catchAsyncError(async(req,res,next)=>{
     if(role !== user.role){
         return next (new ErrorHandler("user with this Role not found",400))
     }
-    res.status(200).json({
-        success:true,
-        message:"User Logged In Successfully",
-     });
+    generateToken(user,"User Login successfully!",200,res)
 
 
 })
