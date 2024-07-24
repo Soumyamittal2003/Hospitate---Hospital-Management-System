@@ -109,7 +109,7 @@ export const addnewAdmin = catchAsyncError(async(req,res,next)=>{
         }
     let isRegistered= await User.findOne({email});
     if (isRegistered) {
-        return next(new ErrorHandler(`${isRegistered.role}with this Email Already Registered!`,400));
+        return next(new ErrorHandler(`${isRegistered.role} with this Email Already Registered!`,400));
         }
 
     const admin= await User.create({
