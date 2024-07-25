@@ -1,6 +1,12 @@
 dependencies :
-
+backenend:
 bcrypt : hash password
 cloudinary : used to store img in cloud.
 cors : connect backend frontend
+
+frontend:
+axios : request sending 
+react icon: icon pakage
+react-multi-carousel : to make slider
+react-router-dom : navigation
 

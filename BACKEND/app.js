@@ -20,11 +20,11 @@ config({path: "./config/config.env"})
 //connecting frontend & backend
 app.use(
     cors({
-        origin:[process.env.FRONTED_URL,process.env.DASHBORD_URL],
-        method:["GET","POST","PUT","DELETE"],
+        origin:[process.env.FRONTEND_URL, process.env.DASHBORD_URL],
+        method: ["GET", "POST", "DELETE", "PUT"],
         credentials: true,
-
-})
+    
+    })
 );
 
 app.use(cookieParser());
