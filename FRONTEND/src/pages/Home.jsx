@@ -1,8 +1,18 @@
 import React from 'react'
+import Hero from '../components/Hero'
+import Biography from '../components/Biography'
+import Department from '../components/Department'
+import MessageFrom from '../components/MessageFrom'
+
 
 const Home = () => {
   return (
-    <div>home</div>
+    <>
+    <Hero title={"welcome"} imageUrl={"/hero.png"}/>
+    <Biography/>
+    <Department/>
+    <MessageFrom/>
+    </>
   )
 }
 
