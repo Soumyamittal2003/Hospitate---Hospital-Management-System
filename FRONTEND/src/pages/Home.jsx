@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <>
     <Hero title={"welcome"} imageUrl={"/hero.png"}/>
-    <Biography/>
+    <Biography imageUrl={"/about.png"}/>
     <Department/>
     <MessageFrom/>
     </>
