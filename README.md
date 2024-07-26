@@ -4,15 +4,10 @@ This is a repository for a Full Stack Hosipital Management System with Patient +
 
 ## TechStack Used:
 
-## Frontend
+- Frontend - ReactJs
+- Backend - NodeJs, ExpressJs , MongoDB ,
 
-ReactJs
-
-## Backend
-
-NodeJs, ExpressJs , MongoDB ,
-
-Key Features:
+## Key Features:
 
 ### Cloning the repository
 
@@ -23,7 +18,7 @@ git clone https://github.com/Soumyamittal2003/Hospitate_Hospital-Management-Syst
 ### Install Node Packages
 
 Note :
--You need to install on each Dicrectory i.e BACKEND,FRONTEND,DASHBOARD
+-You need to install on each Dicrectory i.e  BACKEND, FRONTEND, DASHBOARD
 
 ```shell
 npm install
@@ -32,7 +27,7 @@ npm install
 ### Setup .env file
 
 Note :
--You need to install on each Dicrectory i.e BACKEND,FRONTEND,DASHBOARD
+-You need to install on each Dicrectory i.e BACKEND, FRONTEND, DASHBOARD
 
 Steps:
 
@@ -49,9 +44,9 @@ DASHBORD_URL =
 
 JWT_SECRET_KEY =
 
-JWT_EXPIRES = <interger number with d withoutspace>
+JWT_EXPIRES = interger number with "d" without space
 
-COOKIE_EXPIRE =<interger number>
+COOKIE_EXPIRE = interger number 
 
 CLOUDINARY_CLOUD_NAME =
 
@@ -65,7 +60,7 @@ CLOUDINARY_API_KEY =
 ### Start the app
 
 Note :
--You need to start on each Dicrectory i.e BACKEND,FRONTEND,DASHBOARD
+-You need to start on each Dicrectory i.e BACKEND, FRONTEND, DASHBOARD
 -create three terminal for this purpose.
 
 ```shell
